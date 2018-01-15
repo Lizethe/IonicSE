@@ -7,6 +7,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Client Detail</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="updateClient()">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -24,11 +29,24 @@
       <ion-label fixed>{{client.phoneNumber}}</ion-label>
     </ion-item>
     <ion-item>
-        <ion-label fixed>Photo:</ion-label>
-        <img [src]="client.photo"  *ngIf="client.photo"/>
-        <button ion-button full color="secondary" (click)="takePicture()" >
-          <ion-icon name="camera"></ion-icon>
-        </button>
+      <ion-label fixed>Photo:</ion-label>
+      <img [src]="client.photo" *ngIf="client.photo" />
     </ion-item>
+    <ion-item *ngIf="client.location">
+      <ion-label fixed>Location:</ion-label>
+      <ion-label fixed class="location">{{client.location.latitude}} {{client.location.latitude}}</ion-label>
+    </ion-item>
+    <button ion-button full color="secondary" (click)="callClient(client.phoneNumber)">
+      <ion-icon name="call"></ion-icon>&nbsp;Call Client
+    </button>
+    <button ion-button full color="secondary" (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>&nbsp;Change Photo
+    </button>
+    <button ion-button full color="secondary" (click)="addLocation()">
+      <ion-icon name="pin"></ion-icon>&nbsp;Change Location
+    </button>
+    <button ion-button full color="secondary" (click)="deleteClient(client)">
+      <ion-icon name="trash"></ion-icon>&nbsp;Delete Client
+    </button>
   </ion-list>
 </ion-content>

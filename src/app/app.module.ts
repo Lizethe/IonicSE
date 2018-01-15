@@ -22,6 +22,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ClientPage } from '../pages/client/client';
 import { LocationPage } from '../pages/location/location';
+import { CallNumber } from '@ionic-native/call-number';
 
 export const configFirebase = {
   apiKey: "AIzaSyCiEXXfNfVh_vhugAvNyEgzJhV8B23vy1w",
@@ -39,7 +40,7 @@ export const configFirebase = {
     TabsPage,
     LoginPage,
     // ClientPage,
-    // LocationPage,
+    LocationPage,
     // ClientInfoPage
   ],
   imports: [
@@ -57,7 +58,7 @@ export const configFirebase = {
     TabsPage,
     LoginPage,
     // ClientPage,
-    // LocationPage,
+    LocationPage,
     // ClientInfoPage
   ],
   providers: [
@@ -70,7 +71,8 @@ export const configFirebase = {
     HttpClient,
     Camera,
     Geolocation,
-    GoogleMaps
+    GoogleMaps,
+    CallNumber
   ]
 })
 export class AppModule {}

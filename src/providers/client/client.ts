@@ -27,7 +27,12 @@ export class ClientProvider {
     return this.clients.valueChanges();
   }
 
-  addClient(contact: Client){
-    this.clients.push(contact);
+  addClient(client: Client){
+    this.clients.push(client);
+  }
+
+  deleteClient(client){
+    console.log("Delete client", client);
+    //this.clients.remove(client);
   }
 }

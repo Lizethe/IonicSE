@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Client } from '../../models/client';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera';
 import { ClientProvider } from '../../providers/client/client';
+import { CallNumber } from '@ionic-native/call-number';
 
 /**
  * Generated class for the ClientInfoPage page.
@@ -25,9 +26,10 @@ export class ClientInfoPage {
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
   }
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public clientService: ClientProvider,
+    private callNumber: CallNumber,
     public camera: Camera) {
     this.client = navParams.get('client');
   }
@@ -36,12 +38,21 @@ export class ClientInfoPage {
     console.log('ionViewDidLoad ContactInfoPage');
   }
 
-  takePicture(){
+  takePicture() {
     this.camera.getPicture(this.options).then((imageData) => {
-      this.client.photo  = 'data:image/jpeg;base64,' + imageData;
-      console.log();
-     }, (err) => {
+      this.client.photo = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
       console.log(err);
-     });
+    });
+  }
+
+  callClient(phone: string) {
+    this.callNumber.callNumber(phone, true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+  }
+
+  deleteClient(client){
+    this.clientService.deleteClient(client);
   }
 }

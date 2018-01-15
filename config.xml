@@ -90,4 +90,5 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAUvs7wOcso8Zynl-pQvR0gKOlaLXr_l8A" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyDcLDGqIVvryqNYXnRoZKGIfrkB90lzU9c" />
     </plugin>
+    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
 </widget>

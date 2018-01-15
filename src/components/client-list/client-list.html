@@ -1,5 +1,8 @@
 <ion-list>
-  <button ion-item *ngFor="let client of clients" (click)="goToClientInfo(client)">
-    {{ client.name | uppercase}} {{ client.lastName | uppercase}}
-  </button>
+  <ion-item-sliding *ngFor="let client of clients">
+    <button ion-item (click)="goToClientInfo(client)">
+      <h2>{{client.name}} {{client.lastName}}</h2>
+      <h3>Phone: {{client.phoneNumber}}</h3>
+    </button>
+  </ion-item-sliding>
 </ion-list>
