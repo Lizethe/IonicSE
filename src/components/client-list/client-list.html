@@ -1,0 +1,5 @@
+<ion-list>
+  <button ion-item *ngFor="let client of clients" (click)="goToClientInfo(client)">
+    {{ client.name | uppercase}} {{ client.lastName | uppercase}}
+  </button>
+</ion-list>

@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ClientInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Client Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Name:</ion-label>
+      <ion-label fixed>{{client.name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Last Name:</ion-label>
+      <ion-label fixed>{{client.lastName}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Phone Number:</ion-label>
+      <ion-label fixed>{{client.phoneNumber}}</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>Photo:</ion-label>
+        <img [src]="client.photo"  *ngIf="client.photo"/>
+        <button ion-button full color="secondary" (click)="takePicture()" >
+          <ion-icon name="camera"></ion-icon>
+        </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
